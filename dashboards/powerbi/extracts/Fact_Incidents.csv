@@ -1,42 +1,253 @@
 incident_id,asset_id,location_id,date_key,weather_id,severity,category,description,status,resolution_hours
-1,6,2,20240216,291,high,safety,Safety hold at LN-MR-0006 while the crew confirmed clearances. Work resumed the same shift.,closed,89.6
-2,4,1,20240308,68,medium,equipment_failure,LN-NI-0004 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,63.1
-3,13,4,20240303,795,low,protection_alarm,Protection alarm on LN-RH-0013 cleared after a relay check. No customer interruption recorded.,closed,52.4
-4,19,5,20240406,1073,high,protection_alarm,Protection alarm on GEN-CC-0019 cleared after a relay check. No customer interruption recorded.,closed,60.4
-5,22,6,20240507,1348,low,equipment_failure,BESS-MI-0022 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,38.3
-6,14,4,20240723,937,medium,protection_alarm,Protection alarm on GEN-RH-0014 cleared after a relay check. No customer interruption recorded.,closed,81.4
-7,20,5,20240726,1184,medium,equipment_failure,BESS-CC-0020 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,36.5
-8,2,1,20240806,219,low,equipment_failure,GEN-NI-0002 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,65.2
-9,4,1,20240823,236,critical,protection_alarm,Protection alarm on LN-NI-0004 cleared after a relay check. No customer interruption recorded.,closed,5.8
-10,12,3,20240126,514,low,environmental,Environmental watch near GEN-IB-0012 after oil-containment inspection. No release confirmed.,closed,20.2
-11,9,3,20240521,630,low,safety,Safety hold at GEN-IB-0009 while the crew confirmed clearances. Work resumed the same shift.,closed,15.0
-12,29,8,20240416,1815,low,public_damage,Public damage report filed against BESS-CD-0029. Field inspection found no immediate service risk.,closed,8.9
-13,3,1,20240322,82,low,environmental,Environmental watch near BESS-NI-0003 after oil-containment inspection. No release confirmed.,closed,7.5
-14,25,7,20240225,1520,low,public_damage,Public damage report filed against LN-DS-0025. Field inspection found no immediate service risk.,closed,16.6
-15,10,3,20240216,535,low,public_damage,Public damage report filed against BESS-IB-0010. Field inspection found no immediate service risk.,closed,22.1
-16,13,4,20240815,960,low,environmental,Environmental watch near LN-RH-0013 after oil-containment inspection. No release confirmed.,closed,4.6
-17,31,8,20240110,1718,low,environmental,Environmental watch near GEN-CD-0031 after oil-containment inspection. No release confirmed.,closed,5.2
-18,23,6,20240625,1397,low,public_damage,Public damage report filed against LN-MI-0023. Field inspection found no immediate service risk.,closed,6.8
-19,30,8,20240708,1898,low,environmental,Environmental watch near LN-CD-0030 after oil-containment inspection. No release confirmed.,closed,11.0
-20,11,3,20240607,647,low,public_damage,Public damage report filed against LN-IB-0011. Field inspection found no immediate service risk.,closed,20.9
-21,28,7,20240103,1467,low,environmental,Environmental watch near LN-DS-0028 after oil-containment inspection. No release confirmed.,closed,8.1
-22,21,6,20240703,1405,low,public_damage,Public damage report filed against GEN-MI-0021. Field inspection found no immediate service risk.,closed,7.9
-23,8,2,20240508,373,low,environmental,Environmental watch near BESS-MR-0008 after oil-containment inspection. No release confirmed.,closed,16.3
-24,7,2,20240815,472,low,safety,Safety hold at GEN-MR-0007 while the crew confirmed clearances. Work resumed the same shift.,closed,14.7
-25,32,8,20240413,1812,low,safety,Safety hold at BESS-CD-0032 while the crew confirmed clearances. Work resumed the same shift.,closed,18.2
-26,5,2,20240315,319,low,public_damage,Public damage report filed against BESS-MR-0005. Field inspection found no immediate service risk.,closed,5.3
-27,1,1,20240606,158,low,public_damage,Public damage report filed against LN-NI-0001. Field inspection found no immediate service risk.,closed,1.6
-28,19,5,20240801,1190,low,safety,Safety hold at GEN-CC-0019 while the crew confirmed clearances. Work resumed the same shift.,closed,4.7
-29,16,4,20240330,822,low,environmental,Environmental watch near LN-RH-0016 after oil-containment inspection. No release confirmed.,closed,16.4
-30,26,7,20240602,1618,low,environmental,Environmental watch near GEN-DS-0026 after oil-containment inspection. No release confirmed.,closed,14.4
-31,2,1,20240324,84,low,environmental,Environmental watch near GEN-NI-0002 after oil-containment inspection. No release confirmed.,closed,12.8
-32,4,1,20240202,33,low,safety,Safety hold at LN-NI-0004 while the crew confirmed clearances. Work resumed the same shift.,closed,3.6
-33,17,5,20240516,1113,low,safety,Safety hold at BESS-CC-0017 while the crew confirmed clearances. Work resumed the same shift.,closed,3.0
-34,20,5,20240227,1034,low,environmental,Environmental watch near BESS-CC-0020 after oil-containment inspection. No release confirmed.,closed,18.9
-35,24,6,20240323,1303,low,safety,Safety hold at GEN-MI-0024 while the crew confirmed clearances. Work resumed the same shift.,closed,4.3
-36,15,4,20240802,947,low,public_damage,Public damage report filed against BESS-RH-0015. Field inspection found no immediate service risk.,closed,4.5
-37,18,5,20240121,997,low,public_damage,Public damage report filed against LN-CC-0018. Field inspection found no immediate service risk.,closed,18.8
-38,22,6,20240506,1347,low,environmental,Environmental watch near BESS-MI-0022 after oil-containment inspection. No release confirmed.,closed,22.0
-39,27,7,20240302,1526,low,environmental,Environmental watch near BESS-DS-0027 after oil-containment inspection. No release confirmed.,closed,7.3
-40,14,4,20240426,849,low,safety,Safety hold at GEN-RH-0014 while the crew confirmed clearances. Work resumed the same shift.,closed,3.3
-41,6,2,20240509,374,low,safety,Safety hold at LN-MR-0006 while the crew confirmed clearances. Work resumed the same shift.,closed,12.2
+1,18,3,20240103,1097,high,equipment_failure,LN-NI-0018 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,71.0
+2,23,3,20240101,1095,low,equipment_failure,BESS-NI-0023 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,39.6
+3,39,5,20240127,2215,medium,equipment_failure,GEN-MR-0039 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,64.6
+4,44,6,20240128,2763,high,equipment_failure,BESS-MR-0044 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,46.1
+5,53,7,20240119,3301,medium,equipment_failure,GEN-IB-0053 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,26.9
+6,77,10,20240113,4936,medium,protection_alarm,Protection alarm on GEN-RH-0077 cleared after a relay check. No customer interruption recorded.,closed,80.2
+7,78,10,20240129,4952,low,equipment_failure,BESS-RH-0078 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,77.8
+8,100,13,20240110,6574,medium,equipment_failure,LN-CC-0100 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,57.7
+9,114,15,20240121,7679,medium,equipment_failure,LN-CC-0114 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+10,121,16,20240114,8219,medium,equipment_failure,LN-MI-0121 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,4.4
+11,140,18,20240108,9307,medium,safety,Safety hold at BESS-MI-0140 while the crew confirmed clearances. Work resumed the same shift.,closed,73.6
+12,154,20,20240121,10414,low,equipment_failure,BESS-DS-0154 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,77.7
+13,189,24,20240128,12609,high,safety,Safety hold at LN-CD-0189 while the crew confirmed clearances. Work resumed the same shift.,closed,25.5
+14,12,2,20240206,584,low,safety,Safety hold at GEN-NI-0012 while the crew confirmed clearances. Work resumed the same shift.,closed,67.8
+15,30,4,20240207,1679,high,equipment_failure,BESS-MR-0030 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,31.8
+16,39,5,20240221,2240,low,safety,Safety hold at GEN-MR-0039 while the crew confirmed clearances. Work resumed the same shift.,closed,61.5
+17,99,13,20240203,6598,medium,protection_alarm,Protection alarm on BESS-CC-0099 cleared after a relay check. No customer interruption recorded.,closed,10.8
+18,124,16,20240206,8242,high,safety,Safety hold at LN-MI-0124 while the crew confirmed clearances. Work resumed the same shift.,closed,3.1
+19,127,16,20240213,8249,critical,equipment_failure,LN-MI-0127 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+20,134,17,20240213,8796,high,equipment_failure,LN-MI-0134 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,64.0
+21,160,20,20240221,10445,high,equipment_failure,BESS-DS-0160 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,62.8
+22,175,22,20240203,11521,high,equipment_failure,LN-CD-0175 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,82.9
+23,184,23,20240215,12080,medium,equipment_failure,BESS-CD-0184 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,27.4
+24,191,24,20240218,12630,medium,equipment_failure,BESS-CD-0191 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,67.5
+25,12,2,20240318,625,high,equipment_failure,GEN-NI-0012 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,56.4
+26,26,4,20240322,1723,medium,equipment_failure,GEN-MR-0026 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,4.4
+27,39,5,20240320,2268,high,equipment_failure,GEN-MR-0039 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,38.2
+28,40,5,20240331,2279,high,equipment_failure,BESS-MR-0040 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,27.7
+29,54,7,20240305,3347,medium,equipment_failure,BESS-IB-0054 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,89.5
+30,69,9,20240310,4446,low,equipment_failure,LN-IB-0069 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,84.9
+31,81,11,20240325,5555,medium,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,77.1
+32,83,11,20240327,5557,medium,protection_alarm,Protection alarm on LN-RH-0083 cleared after a relay check. No customer interruption recorded.,closed,56.6
+33,110,14,20240312,7183,high,equipment_failure,LN-CC-0110 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,66.7
+34,111,14,20240321,7192,high,protection_alarm,Protection alarm on GEN-CC-0111 cleared after a relay check. No customer interruption recorded.,closed,83.6
+35,124,16,20240319,8284,critical,equipment_failure,LN-MI-0124 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,83.4
+36,132,17,20240331,8843,critical,equipment_failure,GEN-MI-0132 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,52.9
+37,180,23,20240309,12103,medium,equipment_failure,GEN-CD-0180 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,87.3
+38,191,24,20240328,12669,high,protection_alarm,Protection alarm on BESS-CD-0191 cleared after a relay check. No customer interruption recorded.,closed,15.5
+39,58,8,20240416,3936,medium,equipment_failure,BESS-IB-0058 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,47.1
+40,81,11,20240411,5572,medium,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,70.7
+41,89,12,20240419,6127,low,equipment_failure,BESS-RH-0089 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,12.2
+42,106,14,20240420,7222,medium,equipment_failure,BESS-CC-0106 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,46.6
+43,132,17,20240422,8865,medium,equipment_failure,GEN-MI-0132 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,78.1
+44,177,23,20240406,12131,low,equipment_failure,GEN-CD-0177 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,70.9
+45,12,2,20240518,686,medium,equipment_failure,GEN-NI-0012 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,41.0
+46,52,7,20240526,3429,medium,safety,Safety hold at LN-IB-0052 while the crew confirmed clearances. Work resumed the same shift.,open,0.0
+47,101,13,20240520,6705,high,equipment_failure,GEN-CC-0101 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,47.3
+48,109,14,20240511,7243,low,equipment_failure,BESS-CC-0109 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,51.2
+49,119,15,20240528,7807,low,equipment_failure,BESS-CC-0119 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,42.8
+50,160,20,20240503,10517,critical,equipment_failure,BESS-DS-0160 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,85.5
+51,18,3,20240621,1267,medium,equipment_failure,LN-NI-0018 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,36.9
+52,31,4,20240601,1794,medium,equipment_failure,LN-MR-0031 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,63.0
+53,67,9,20240622,4550,critical,equipment_failure,GEN-IB-0067 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,46.8
+54,79,10,20240625,5100,high,equipment_failure,LN-RH-0079 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,22.2
+55,113,15,20240621,7831,high,equipment_failure,BESS-CC-0113 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,72.9
+56,128,16,20240627,8384,low,equipment_failure,GEN-MI-0128 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,21.5
+57,170,22,20240617,11656,critical,equipment_failure,GEN-CD-0170 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,19.2
+58,171,22,20240627,11666,low,protection_alarm,Protection alarm on BESS-CD-0171 cleared after a relay check. No customer interruption recorded.,closed,61.7
+59,175,22,20240605,11644,critical,equipment_failure,LN-CD-0175 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,10.7
+60,20,3,20240727,1303,medium,equipment_failure,BESS-NI-0020 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,51.5
+61,71,9,20240725,4583,high,protection_alarm,Protection alarm on BESS-IB-0071 cleared after a relay check. No customer interruption recorded.,closed,68.0
+62,81,11,20240722,5674,high,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,9.4
+63,109,14,20240716,7309,low,equipment_failure,BESS-CC-0109 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,85.4
+64,124,16,20240716,8403,medium,equipment_failure,LN-MI-0124 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,18.4
+65,160,20,20240714,10589,low,equipment_failure,BESS-DS-0160 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,6.4
+66,183,23,20240708,12224,medium,equipment_failure,GEN-CD-0183 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,67.3
+67,1,1,20240806,219,low,equipment_failure,LN-NI-0001 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,89.3
+68,44,6,20240817,2965,medium,equipment_failure,BESS-MR-0044 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,66.8
+69,52,7,20240824,3519,high,safety,Safety hold at LN-IB-0052 while the crew confirmed clearances. Work resumed the same shift.,closed,61.5
+70,54,7,20240830,3525,high,equipment_failure,BESS-IB-0054 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,47.8
+71,67,9,20240819,4608,high,equipment_failure,GEN-IB-0067 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,76.7
+72,80,10,20240829,5165,high,equipment_failure,GEN-RH-0080 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+73,81,11,20240809,5692,high,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,27.5
+74,93,12,20240830,6260,medium,equipment_failure,LN-RH-0093 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,40.2
+75,94,12,20240813,6243,low,equipment_failure,GEN-RH-0094 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,8.7
+76,110,14,20240801,7325,low,equipment_failure,LN-CC-0110 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,82.1
+77,124,16,20240831,8449,low,protection_alarm,Protection alarm on LN-MI-0124 cleared after a relay check. No customer interruption recorded.,closed,32.5
+78,125,16,20240814,8432,medium,protection_alarm,Protection alarm on GEN-MI-0125 cleared after a relay check. No customer interruption recorded.,closed,39.3
+79,128,16,20240814,8432,critical,equipment_failure,GEN-MI-0128 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,22.3
+80,134,17,20240813,8978,high,safety,Safety hold at LN-MI-0134 while the crew confirmed clearances. Work resumed the same shift.,closed,68.5
+81,140,18,20240822,9534,critical,equipment_failure,BESS-MI-0140 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,15.1
+82,170,22,20240804,11704,critical,protection_alarm,Protection alarm on GEN-CD-0170 cleared after a relay check. No customer interruption recorded.,closed,67.5
+83,23,3,20240926,1364,critical,equipment_failure,BESS-NI-0023 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,81.6
+84,84,11,20240929,5743,low,protection_alarm,Protection alarm on GEN-RH-0084 cleared after a relay check. No customer interruption recorded.,closed,9.0
+85,90,12,20240919,6280,medium,equipment_failure,LN-RH-0090 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,4.6
+86,100,13,20240901,6809,high,equipment_failure,LN-CC-0100 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,37.9
+87,102,13,20240928,6836,medium,equipment_failure,BESS-CC-0102 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,33.5
+88,116,15,20240918,7920,high,equipment_failure,BESS-CC-0116 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,20.2
+89,128,16,20240919,8468,high,equipment_failure,GEN-MI-0128 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,2.7
+90,132,17,20240920,9016,low,equipment_failure,GEN-MI-0132 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,51.8
+91,135,17,20240909,9005,medium,protection_alarm,Protection alarm on GEN-MI-0135 cleared after a relay check. No customer interruption recorded.,open,0.0
+92,164,21,20240920,11204,medium,equipment_failure,BESS-DS-0164 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,44.0
+93,171,22,20240906,11737,medium,protection_alarm,Protection alarm on BESS-CD-0171 cleared after a relay check. No customer interruption recorded.,closed,35.1
+94,191,24,20240915,12840,critical,equipment_failure,BESS-CD-0191 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,80.6
+95,9,2,20241017,838,medium,equipment_failure,GEN-NI-0009 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,64.2
+96,17,3,20241028,1396,high,equipment_failure,BESS-NI-0017 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,24.2
+97,20,3,20241003,1371,medium,equipment_failure,BESS-NI-0020 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,41.4
+98,40,5,20241026,2488,medium,equipment_failure,BESS-MR-0040 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,30.4
+99,43,6,20241012,3021,medium,equipment_failure,GEN-MR-0043 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,75.7
+100,44,6,20241005,3014,medium,protection_alarm,Protection alarm on BESS-MR-0044 cleared after a relay check. No customer interruption recorded.,closed,53.3
+101,56,7,20241029,3585,medium,equipment_failure,GEN-IB-0056 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,10.1
+102,81,11,20241025,5769,medium,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+103,109,14,20241001,7386,medium,equipment_failure,BESS-CC-0109 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,21.2
+104,111,14,20241012,7397,medium,equipment_failure,GEN-CC-0111 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,63.3
+105,121,16,20241013,8492,medium,equipment_failure,LN-MI-0121 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,67.4
+106,125,16,20241006,8485,high,safety,Safety hold at GEN-MI-0125 while the crew confirmed clearances. Work resumed the same shift.,closed,53.9
+107,127,16,20241024,8503,medium,equipment_failure,LN-MI-0127 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,46.9
+108,134,17,20241009,9035,medium,equipment_failure,LN-MI-0134 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,22.3
+109,162,21,20241029,11243,medium,equipment_failure,LN-DS-0162 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,70.6
+110,191,24,20241027,12882,high,equipment_failure,BESS-CD-0191 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,9.8
+111,39,5,20241126,2519,high,equipment_failure,GEN-MR-0039 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,6.5
+112,69,9,20241115,4696,medium,equipment_failure,LN-IB-0069 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,28.3
+113,81,11,20241126,5801,high,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,54.9
+114,88,11,20241116,5791,medium,equipment_failure,BESS-RH-0088 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,51.9
+115,128,16,20241109,8519,high,equipment_failure,GEN-MI-0128 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,86.1
+116,132,17,20241111,9068,medium,equipment_failure,GEN-MI-0132 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+117,134,17,20241128,9085,medium,equipment_failure,LN-MI-0134 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,7.4
+118,190,24,20241108,12894,high,equipment_failure,GEN-CD-0190 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,73.1
+119,34,5,20241215,2538,low,equipment_failure,BESS-MR-0034 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,31.4
+120,57,8,20241205,4169,low,safety,Safety hold at GEN-IB-0057 while the crew confirmed clearances. Work resumed the same shift.,closed,76.9
+121,64,8,20241231,4195,high,equipment_failure,BESS-IB-0064 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,16.3
+122,109,14,20241216,7462,low,safety,Safety hold at BESS-CC-0109 while the crew confirmed clearances. Work resumed the same shift.,closed,22.7
+123,114,15,20241209,8002,high,equipment_failure,LN-CC-0114 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,64.2
+124,127,16,20241202,8542,medium,protection_alarm,Protection alarm on LN-MI-0127 cleared after a relay check. No customer interruption recorded.,open,0.0
+125,160,20,20241205,10733,medium,equipment_failure,BESS-DS-0160 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,28.9
+126,166,21,20241216,11291,medium,equipment_failure,GEN-DS-0166 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,38.7
+127,170,22,20241215,11837,medium,equipment_failure,GEN-CD-0170 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,21.8
+128,171,22,20241231,11853,high,equipment_failure,BESS-CD-0171 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,3.9
+129,175,22,20241220,11842,medium,equipment_failure,LN-CD-0175 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+130,180,23,20241228,12397,critical,equipment_failure,GEN-CD-0180 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,39.7
+131,23,3,20250110,1470,medium,equipment_failure,BESS-NI-0023 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,26.5
+132,39,5,20250131,2585,medium,equipment_failure,GEN-MR-0039 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,64.8
+133,80,10,20250112,5301,high,equipment_failure,GEN-RH-0080 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,47.9
+134,81,11,20250102,5838,medium,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,87.5
+135,123,16,20250119,8590,high,equipment_failure,BESS-MI-0123 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,42.8
+136,128,16,20250122,8593,critical,equipment_failure,GEN-MI-0128 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,13.3
+137,140,18,20250110,9675,high,equipment_failure,BESS-MI-0140 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,78.7
+138,151,19,20250123,10235,high,equipment_failure,LN-DS-0151 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,54.2
+139,153,20,20250105,10764,low,equipment_failure,GEN-DS-0153 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,66.7
+140,21,3,20250228,1519,medium,safety,Safety hold at LN-NI-0021 while the crew confirmed clearances. Work resumed the same shift.,closed,35.0
+141,26,4,20250218,2056,critical,equipment_failure,GEN-MR-0026 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+142,44,6,20250201,3133,low,equipment_failure,BESS-MR-0044 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,36.8
+143,81,11,20250208,5875,medium,protection_alarm,Protection alarm on GEN-RH-0081 cleared after a relay check. No customer interruption recorded.,closed,23.8
+144,101,13,20250207,6968,critical,safety,Safety hold at GEN-CC-0101 while the crew confirmed clearances. Work resumed the same shift.,closed,3.8
+145,116,15,20250208,8063,critical,equipment_failure,BESS-CC-0116 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,79.1
+146,125,16,20250216,8618,high,equipment_failure,GEN-MI-0125 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,16.1
+147,128,16,20250220,8622,high,equipment_failure,GEN-MI-0128 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,78.6
+148,131,17,20250203,9152,medium,safety,Safety hold at LN-MI-0131 while the crew confirmed clearances. Work resumed the same shift.,open,0.0
+149,153,20,20250203,10793,low,equipment_failure,GEN-DS-0153 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,46.2
+150,155,20,20250221,10811,medium,equipment_failure,LN-DS-0155 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,2.4
+151,171,22,20250226,11910,medium,equipment_failure,BESS-CD-0171 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,67.3
+152,183,23,20250219,12450,medium,safety,Safety hold at GEN-CD-0183 while the crew confirmed clearances. Work resumed the same shift.,closed,37.2
+153,3,1,20250322,447,high,equipment_failure,BESS-NI-0003 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,35.2
+154,8,1,20250312,437,medium,equipment_failure,GEN-NI-0008 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,9.4
+155,15,2,20250328,1000,medium,equipment_failure,GEN-NI-0015 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,68.9
+156,24,3,20250314,1533,medium,equipment_failure,LN-NI-0024 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,52.9
+157,39,5,20250318,2631,high,protection_alarm,Protection alarm on GEN-MR-0039 cleared after a relay check. No customer interruption recorded.,closed,30.6
+158,40,5,20250326,2639,high,safety,Safety hold at BESS-MR-0040 while the crew confirmed clearances. Work resumed the same shift.,closed,52.1
+159,55,7,20250325,3732,low,equipment_failure,LN-IB-0055 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,6.7
+160,81,11,20250324,5919,high,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,43.0
+161,106,14,20250330,7566,high,equipment_failure,BESS-CC-0106 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,62.7
+162,114,15,20250309,8092,high,equipment_failure,LN-CC-0114 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,71.9
+163,118,15,20250314,8097,medium,safety,Safety hold at GEN-CC-0118 while the crew confirmed clearances. Work resumed the same shift.,closed,35.4
+164,119,15,20250303,8086,high,equipment_failure,BESS-CC-0119 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,51.4
+165,123,16,20250311,8641,high,equipment_failure,BESS-MI-0123 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,74.4
+166,124,16,20250306,8636,medium,equipment_failure,LN-MI-0124 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,11.4
+167,127,16,20250307,8637,low,safety,Safety hold at LN-MI-0127 while the crew confirmed clearances. Work resumed the same shift.,closed,27.8
+168,128,16,20250314,8644,low,equipment_failure,GEN-MI-0128 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,28.5
+169,183,23,20250324,12483,high,equipment_failure,GEN-CD-0183 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,34.5
+170,191,24,20250318,13024,high,protection_alarm,Protection alarm on BESS-CD-0191 cleared after a relay check. No customer interruption recorded.,closed,62.8
+171,44,6,20250403,3194,low,equipment_failure,BESS-MR-0044 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,19.6
+172,69,9,20250406,4838,medium,equipment_failure,LN-IB-0069 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,48.8
+173,81,11,20250424,5950,low,equipment_failure,GEN-RH-0081 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,30.1
+174,94,12,20250405,6478,medium,equipment_failure,GEN-RH-0094 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+175,102,13,20250413,7033,medium,equipment_failure,BESS-CC-0102 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,76.4
+176,111,14,20250428,7595,high,equipment_failure,GEN-CC-0111 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,4.4
+177,113,15,20250407,8121,high,equipment_failure,BESS-CC-0113 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,38.3
+178,125,16,20250426,8687,low,equipment_failure,GEN-MI-0125 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,56.3
+179,134,17,20250430,9238,medium,equipment_failure,LN-MI-0134 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,72.1
+180,153,20,20250425,10874,low,equipment_failure,GEN-DS-0153 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,24.0
+181,171,22,20250420,11963,high,equipment_failure,BESS-CD-0171 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,33.9
+182,178,23,20250427,12517,high,equipment_failure,BESS-CD-0178 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,86.1
+183,189,24,20250421,13058,medium,safety,Safety hold at LN-CD-0189 while the crew confirmed clearances. Work resumed the same shift.,closed,28.8
+184,1,1,20250520,506,low,equipment_failure,LN-NI-0001 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,8.1
+185,6,1,20250503,489,high,equipment_failure,BESS-NI-0006 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,70.7
+186,9,2,20250520,1053,low,equipment_failure,GEN-NI-0009 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+187,10,2,20250502,1035,critical,safety,Safety hold at BESS-NI-0010 while the crew confirmed clearances. Work resumed the same shift.,closed,76.7
+188,39,5,20250524,2698,critical,equipment_failure,GEN-MR-0039 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,33.8
+189,43,6,20250504,3225,low,equipment_failure,GEN-MR-0043 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,33.3
+190,44,6,20250508,3229,medium,equipment_failure,BESS-MR-0044 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,6.2
+191,58,8,20250515,4330,high,equipment_failure,BESS-IB-0058 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,87.1
+192,80,10,20250524,5433,medium,equipment_failure,GEN-RH-0080 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,70.7
+193,81,11,20250507,5963,medium,protection_alarm,Protection alarm on GEN-RH-0081 cleared after a relay check. No customer interruption recorded.,closed,67.6
+194,111,14,20250514,7611,high,protection_alarm,Protection alarm on GEN-CC-0111 cleared after a relay check. No customer interruption recorded.,closed,20.9
+195,116,15,20250509,8153,medium,safety,Safety hold at BESS-CC-0116 while the crew confirmed clearances. Work resumed the same shift.,closed,80.6
+196,128,16,20250504,8695,medium,protection_alarm,Protection alarm on GEN-MI-0128 cleared after a relay check. No customer interruption recorded.,closed,13.9
+197,133,17,20250504,9242,high,equipment_failure,BESS-MI-0133 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,41.3
+198,17,3,20250605,1616,high,equipment_failure,BESS-NI-0017 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,9.9
+199,26,4,20250610,2168,medium,equipment_failure,GEN-MR-0026 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,5.0
+200,34,5,20250617,2722,high,equipment_failure,BESS-MR-0034 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,75.1
+201,80,10,20250629,5469,medium,equipment_failure,GEN-RH-0080 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,36.9
+202,81,11,20250622,6009,high,safety,Safety hold at GEN-RH-0081 while the crew confirmed clearances. Work resumed the same shift.,closed,17.7
+203,99,13,20250622,7103,medium,equipment_failure,BESS-CC-0099 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,24.5
+204,111,14,20250607,7635,medium,equipment_failure,GEN-CC-0111 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,54.1
+205,128,16,20250609,8731,high,equipment_failure,GEN-MI-0128 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+206,131,17,20250603,9272,high,equipment_failure,LN-MI-0131 (Transmission Line) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,open,0.0
+207,154,20,20250621,10931,medium,equipment_failure,BESS-DS-0154 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,40.7
+208,160,20,20250610,10920,medium,equipment_failure,BESS-DS-0160 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,80.4
+209,171,22,20250603,12007,low,equipment_failure,BESS-CD-0171 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,51.7
+210,180,23,20250615,12566,critical,protection_alarm,Protection alarm on GEN-CD-0180 cleared after a relay check. No customer interruption recorded.,open,0.0
+211,184,23,20250601,12552,high,equipment_failure,BESS-CD-0184 (Battery Storage) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,77.7
+212,187,24,20250613,13111,medium,equipment_failure,GEN-CD-0187 (Generation Unit) tripped on an internal equipment fault. Crew isolated the bay and transferred load.,closed,87.9
+213,52,7,20240105,3287,low,safety,Safety hold at LN-IB-0052 while the crew confirmed clearances. Work resumed the same shift.,closed,17.9
+214,150,19,20240108,9854,low,environmental,Environmental watch near BESS-DS-0150 after oil-containment inspection. No release confirmed.,closed,8.1
+215,18,3,20240208,1133,low,environmental,Environmental watch near LN-NI-0018 after oil-containment inspection. No release confirmed.,closed,7.8
+216,26,4,20250501,2128,low,safety,Safety hold at GEN-MR-0026 while the crew confirmed clearances. Work resumed the same shift.,closed,11.6
+217,80,10,20240427,5041,low,safety,Safety hold at GEN-RH-0080 while the crew confirmed clearances. Work resumed the same shift.,closed,14.6
+218,90,12,20240518,6156,low,environmental,Environmental watch near LN-RH-0090 after oil-containment inspection. No release confirmed.,closed,8.8
+219,179,23,20250127,12427,low,public_damage,Public damage report filed against LN-CD-0179. Field inspection found no immediate service risk.,closed,10.8
+220,192,24,20250522,13089,low,safety,Safety hold at LN-CD-0192 while the crew confirmed clearances. Work resumed the same shift.,closed,7.2
+221,66,9,20250402,4834,low,public_damage,Public damage report filed against LN-IB-0066. Field inspection found no immediate service risk.,closed,23.9
+222,168,21,20240921,11205,low,public_damage,Public damage report filed against LN-DS-0168. Field inspection found no immediate service risk.,closed,12.6
+223,39,5,20250629,2734,low,public_damage,Public damage report filed against GEN-MR-0039. Field inspection found no immediate service risk.,closed,5.5
+224,22,3,20250519,1599,low,public_damage,Public damage report filed against GEN-NI-0022. Field inspection found no immediate service risk.,closed,6.1
+225,17,3,20250424,1574,low,environmental,Environmental watch near BESS-NI-0017 after oil-containment inspection. No release confirmed.,closed,19.6
+226,82,11,20241012,5756,low,safety,Safety hold at BESS-RH-0082 while the crew confirmed clearances. Work resumed the same shift.,closed,7.2
+227,130,17,20241122,9079,low,environmental,Environmental watch near BESS-MI-0130 after oil-containment inspection. No release confirmed.,closed,23.6
+228,86,11,20250613,6000,low,safety,Safety hold at LN-RH-0086 while the crew confirmed clearances. Work resumed the same shift.,closed,9.3
+229,59,8,20240226,3886,low,public_damage,Public damage report filed against LN-IB-0059. Field inspection found no immediate service risk.,closed,7.6
+230,139,18,20240208,9338,low,public_damage,Public damage report filed against GEN-MI-0139. Field inspection found no immediate service risk.,closed,13.4
+231,56,7,20240617,3451,low,environmental,Environmental watch near GEN-IB-0056 after oil-containment inspection. No release confirmed.,closed,3.0
+232,110,14,20241202,7448,low,safety,Safety hold at LN-CC-0110 while the crew confirmed clearances. Work resumed the same shift.,closed,5.4
+233,79,10,20240610,5085,low,environmental,Environmental watch near LN-RH-0079 after oil-containment inspection. No release confirmed.,closed,23.0
+234,180,23,20241216,12385,low,public_damage,Public damage report filed against GEN-CD-0180. Field inspection found no immediate service risk.,closed,6.2
+235,38,5,20250301,2614,low,environmental,Environmental watch near LN-MR-0038 after oil-containment inspection. No release confirmed.,closed,6.1
+236,45,6,20240429,2855,low,safety,Safety hold at LN-MR-0045 while the crew confirmed clearances. Work resumed the same shift.,closed,19.4
+237,154,20,20240325,10478,low,public_damage,Public damage report filed against BESS-DS-0154. Field inspection found no immediate service risk.,closed,4.0
+238,135,17,20241117,9074,low,safety,Safety hold at GEN-MI-0135 while the crew confirmed clearances. Work resumed the same shift.,closed,20.5
+239,88,11,20250210,5877,low,public_damage,Public damage report filed against BESS-RH-0088. Field inspection found no immediate service risk.,closed,5.9
+240,20,3,20240125,1119,low,safety,Safety hold at BESS-NI-0020 while the crew confirmed clearances. Work resumed the same shift.,closed,8.5
+241,93,12,20250106,6389,low,safety,Safety hold at LN-RH-0093 while the crew confirmed clearances. Work resumed the same shift.,closed,20.1
+242,32,4,20240905,1890,low,public_damage,Public damage report filed against GEN-MR-0032. Field inspection found no immediate service risk.,closed,1.9
+243,147,19,20250624,10387,low,safety,Safety hold at BESS-DS-0147 while the crew confirmed clearances. Work resumed the same shift.,closed,23.0
+244,170,22,20240730,11699,low,public_damage,Public damage report filed against GEN-CD-0170. Field inspection found no immediate service risk.,closed,1.1
+245,98,13,20250206,6967,low,safety,Safety hold at GEN-CC-0098 while the crew confirmed clearances. Work resumed the same shift.,closed,7.5
+246,128,16,20240909,8458,low,safety,Safety hold at GEN-MI-0128 while the crew confirmed clearances. Work resumed the same shift.,closed,1.7
+247,28,4,20240617,1810,low,public_damage,Public damage report filed against LN-MR-0028. Field inspection found no immediate service risk.,closed,22.6
+248,11,2,20240510,678,low,public_damage,Public damage report filed against LN-NI-0011. Field inspection found no immediate service risk.,closed,22.8
+249,114,15,20250129,8053,low,safety,Safety hold at LN-CC-0114 while the crew confirmed clearances. Work resumed the same shift.,closed,14.7
+250,163,21,20250123,11329,low,safety,Safety hold at GEN-DS-0163 while the crew confirmed clearances. Work resumed the same shift.,closed,22.2
+251,92,12,20240111,6028,low,safety,Safety hold at BESS-RH-0092 while the crew confirmed clearances. Work resumed the same shift.,closed,22.1
+252,2,1,20240215,46,low,environmental,Environmental watch near GEN-NI-0002 after oil-containment inspection. No release confirmed.,closed,5.9

@@ -1,9 +1,25 @@
 location_id,region,city,latitude,longitude,grid_zone,criticality,base_mwh,temp_delta
-1,North Intertie,Duluth,46.7867,-92.0945,MRO-N,high,4200,-4.0
-2,Metro Ring,Minneapolis,44.9723,-93.2828,MRO-C,critical,9100,0.0
-3,Industrial Belt,Gary,41.5843,-87.3662,RFC-W,high,7600,1.5
-4,River Hydro,La Crosse,43.8026,-91.2128,MRO-S,medium,2800,-1.0
-5,Coastal Corridor,Providence,41.8142,-71.4252,NPCC-S,high,5400,2.0
-6,Mountain Intertie,Bozeman,45.6868,-111.0358,WECC-N,medium,1900,-6.0
-7,Desert Solar,Tucson,32.2247,-110.9933,WECC-S,medium,3600,10.0
-8,Capital District,Albany,42.652,-73.7423,RFC-E,critical,4800,-0.5
+1,North Intertie,Duluth,46.7928,-92.1213,MRO-N,high,4200,-4.0
+2,North Intertie,Hibbing,47.4422,-92.9189,MRO-N,high,4200,-4.0
+3,North Intertie,Superior,46.6818,-92.1301,MRO-N,high,4200,-4.0
+4,Metro Ring,Minneapolis,44.9804,-93.2713,MRO-C,critical,9100,0.0
+5,Metro Ring,Saint Paul,44.9534,-93.1071,MRO-C,critical,9100,0.0
+6,Metro Ring,Bloomington,44.8584,-93.2827,MRO-C,critical,9100,0.0
+7,Industrial Belt,Gary,41.5947,-87.3239,RFC-W,high,7600,1.5
+8,Industrial Belt,Hammond,41.5928,-87.5172,RFC-W,high,7600,1.5
+9,Industrial Belt,Joliet,41.5324,-88.1009,RFC-W,high,7600,1.5
+10,River Hydro,La Crosse,43.819,-91.2406,MRO-S,medium,2800,-1.0
+11,River Hydro,Winona,44.0462,-91.6529,MRO-S,medium,2800,-1.0
+12,River Hydro,Red Wing,44.587,-92.5369,MRO-S,medium,2800,-1.0
+13,Coastal Corridor,Providence,41.8154,-71.4198,NPCC-S,high,5400,2.0
+14,Coastal Corridor,New Bedford,41.6468,-70.9269,NPCC-S,high,5400,2.0
+15,Coastal Corridor,Fall River,41.7098,-71.1464,NPCC-S,high,5400,2.0
+16,Mountain Intertie,Bozeman,45.7198,-111.051,WECC-N,medium,1900,-6.0
+17,Mountain Intertie,Helena,46.5789,-112.0554,WECC-N,medium,1900,-6.0
+18,Mountain Intertie,Butte,46.0161,-112.5122,WECC-N,medium,1900,-6.0
+19,Desert Solar,Tucson,32.2203,-110.9915,WECC-S,medium,3600,10.0
+20,Desert Solar,Yuma,32.6762,-114.6147,WECC-S,medium,3600,10.0
+21,Desert Solar,Las Cruces,32.3348,-106.7528,WECC-S,medium,3600,10.0
+22,Capital District,Albany,42.6393,-73.7516,RFC-E,critical,4800,-0.5
+23,Capital District,Schenectady,42.8165,-73.9352,RFC-E,critical,4800,-0.5
+24,Capital District,Troy,42.7458,-73.6873,RFC-E,critical,4800,-0.5
