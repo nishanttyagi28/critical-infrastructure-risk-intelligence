@@ -1,0 +1,244 @@
+/// All report measures. Display folders group them by subject.
+table _Measures
+	lineageTag: 7c808c0e-caac-5682-b7a1-b69901260191
+
+	/// Count of assets
+	measure 'Total Assets' = DISTINCTCOUNT ( Dim_Asset[asset_id] )
+		formatString: #,0
+		displayFolder: Assets
+		lineageTag: 62a4770a-c95d-5ab6-9fb3-3625cf13fc1b
+
+	/// Incidents with status open
+	measure 'Active Incidents' = CALCULATE ( COUNTROWS ( Fact_Incidents ), Fact_Incidents[status] = "open" )
+		formatString: #,0
+		displayFolder: Incidents
+		lineageTag: 411fdfd1-de81-5537-b77a-e61071e6fcad
+
+	/// Assets in the Critical band
+	measure 'Critical Risks' = CALCULATE ( COUNTROWS ( Mart_AssetRisk ), Mart_AssetRisk[risk_label] = "Critical" )
+		formatString: #,0
+		displayFolder: Risk
+		lineageTag: 6a4f62ba-2c8a-5673-8b9e-8bcb9a08973c
+
+	/// Assets in the High band
+	measure 'High Risks' = CALCULATE ( COUNTROWS ( Mart_AssetRisk ), Mart_AssetRisk[risk_label] = "High" )
+		formatString: #,0
+		displayFolder: Risk
+		lineageTag: 96128bb3-cb58-5e8e-a1e6-81eecf209044
+
+	/// Assets with failure probability of at least 0.50
+	measure 'Predicted Failures' = CALCULATE ( COUNTROWS ( Ml_FailureScore ), Ml_FailureScore[failure_probability] >= 0.5 )
+		formatString: #,0
+		displayFolder: Model scores
+		lineageTag: 20fdcab4-2f98-5163-bac2-4b8723f05a47
+
+	/// Outage events
+	measure 'Outage Count' = COUNTROWS ( Fact_Outages )
+		formatString: #,0
+		displayFolder: Outages
+		lineageTag: aa6c1925-66c9-5e9b-9b06-654af6b823a1
+
+	/// Customers affected by outages
+	measure 'Customers Affected' = SUM ( Fact_Outages[customers_affected] )
+		formatString: #,0
+		displayFolder: Outages
+		lineageTag: 67cbe77b-78ca-5ab6-8401-d531aca7c386
+
+	/// Mean outage duration
+	measure 'Average Outage Hours' = AVERAGE ( Fact_Outages[duration_hours] )
+		formatString: 0.00
+		displayFolder: Outages
+		lineageTag: 6ff50689-2c54-53f6-9c5f-b0942f1b5f9b
+
+	/// Energy demand in MWh
+	measure 'Energy Demand MWh' = SUM ( Fact_EnergyDemand[demand_mwh] )
+		formatString: #,0
+		displayFolder: Demand
+		lineageTag: 580bbac8-5411-5ed2-841e-8005733898c4
+
+	/// Mean composite risk score (0 to 100)
+	measure 'Average Risk Score' = AVERAGE ( Mart_AssetRisk[risk_score] )
+		formatString: 0.0
+		displayFolder: Risk
+		lineageTag: 555b0bd6-cd8a-5afc-b445-3fbd3b98d807
+
+	/// Maintenance jobs
+	measure 'Maintenance Jobs' = COUNTROWS ( Fact_Maintenance )
+		formatString: #,0
+		displayFolder: Maintenance
+		lineageTag: 28d1bfe1-df0a-55c5-b60d-077662a2be99
+
+	/// Maintenance spend in USD
+	measure 'Maintenance Cost' = SUM ( Fact_Maintenance[cost_usd] )
+		formatString: $#,0
+		displayFolder: Maintenance
+		lineageTag: 9dfccc18-9515-53d9-9c4e-88752a54297d
+
+	/// Forecast demand over the 90-day horizon
+	measure 'Forecast MWh' = SUM ( Ml_DemandForecast[forecast_mwh] )
+		formatString: #,0
+		displayFolder: Demand
+		lineageTag: e83e6426-4564-5e50-bca4-a6159f5816b2
+
+	/// Mean health score (0 to 100)
+	measure 'Average Health' = AVERAGE ( Ml_HealthScore[health_score] )
+		formatString: 0.0
+		displayFolder: Model scores
+		lineageTag: 1fce322e-8ca9-5e54-8f88-2c98d01c6b34
+
+	/// Assets with outage probability of at least 0.50
+	measure 'Predicted Outages' = CALCULATE ( COUNTROWS ( Ml_OutageScore ), Ml_OutageScore[outage_probability] >= 0.5 )
+		formatString: #,0
+		displayFolder: Model scores
+		lineageTag: b4e8ddba-8eef-5e86-9237-2639fc2ef4f7
+
+	measure 'Average Outage Probability' = AVERAGE ( Ml_OutageScore[outage_probability] )
+		formatString: 0.0%
+		displayFolder: Model scores
+		lineageTag: bb40d7b7-7d68-5dce-9a52-2cdec65fe522
+
+	measure 'Average Failure Probability' = AVERAGE ( Ml_FailureScore[failure_probability] )
+		formatString: 0.0%
+		displayFolder: Model scores
+		lineageTag: fe536947-a1e6-5279-890d-7d1ed83c5085
+
+	/// Assets in the High or Critical band
+	measure 'Assets at Risk' = [Critical Risks] + [High Risks]
+		formatString: #,0
+		displayFolder: Risk
+		lineageTag: 2b0e4b01-90f5-5447-a006-d8f8cbc0d3da
+
+	/// Share of assets in the High or Critical band
+	measure 'At-Risk Share' = DIVIDE ( [Assets at Risk], COUNTROWS ( Mart_AssetRisk ) )
+		formatString: 0.0%
+		displayFolder: Risk
+		lineageTag: 3b7dd824-3b61-5928-bd7c-bec67e9e6ff8
+
+	/// Assets with at most one maintenance job in the last 365 days
+	measure 'Maintenance Backlog' = CALCULATE ( COUNTROWS ( Mart_AssetRisk ), Mart_AssetRisk[maintenance_365d] <= 1 )
+		formatString: #,0
+		displayFolder: Maintenance
+		lineageTag: c037b258-1219-5f7c-9a89-3a98ec4b348f
+
+	/// All incidents
+	measure Incidents = COUNTROWS ( Fact_Incidents )
+		formatString: #,0
+		displayFolder: Incidents
+		lineageTag: d3d4169c-86fd-551b-9d5b-53cfeda7a3f4
+
+	measure 'Critical Incidents' = CALCULATE ( COUNTROWS ( Fact_Incidents ), Fact_Incidents[severity] = "critical" )
+		formatString: #,0
+		displayFolder: Incidents
+		lineageTag: 9daac656-b516-5133-a3cb-50df80f44a5d
+
+	/// Mean hours to resolve an incident
+	measure 'Average Resolution Hours' = AVERAGE ( Fact_Incidents[resolution_hours] )
+		formatString: 0.0
+		displayFolder: Incidents
+		lineageTag: 9c84ee18-8cb1-5507-a87e-202c64c59fc4
+
+	/// Total outage duration
+	measure 'Outage Hours' = SUM ( Fact_Outages[duration_hours] )
+		formatString: #,0.0
+		displayFolder: Outages
+		lineageTag: f0d6553b-99f4-5c97-bd93-ebcecb8c7f0f
+
+	/// Duration times customers affected, summed over outages
+	measure 'Customer Hours Interrupted' = SUMX ( Fact_Outages, Fact_Outages[duration_hours] * Fact_Outages[customers_affected] )
+		formatString: #,0
+		displayFolder: Outages
+		lineageTag: a2364d6b-ddc7-5663-a72c-29e1aefb9768
+
+	measure 'Average Cost per Job' = DIVIDE ( [Maintenance Cost], [Maintenance Jobs] )
+		formatString: $#,0
+		displayFolder: Maintenance
+		lineageTag: d1ea6526-2486-53ec-b72a-9d2cb84b8beb
+
+	/// Share of jobs that were preventive
+	measure 'Preventive Share' = DIVIDE ( CALCULATE ( [Maintenance Jobs], Fact_Maintenance[maintenance_type] = "preventive" ), [Maintenance Jobs] )
+		formatString: 0.0%
+		displayFolder: Maintenance
+		lineageTag: d0f1b3e8-a5e6-5037-ba17-20a9f4036fe8
+
+	measure 'Maintenance Hours' = SUM ( Fact_Maintenance[duration_hours] )
+		formatString: #,0
+		displayFolder: Maintenance
+		lineageTag: bd28c878-b322-51d8-8139-2a5b6afa3940
+
+	/// Demand over the last 30 dates in the data
+	measure 'Demand Last 30 Days MWh' =
+			VAR LastDate =
+			    CALCULATE ( MAXX ( Fact_EnergyDemand, RELATED ( Dim_Date[full_date] ) ), ALL ( Dim_Date ) )
+			RETURN
+			    CALCULATE ( [Energy Demand MWh], DATESINPERIOD ( Dim_Date[full_date], LastDate, -30, DAY ) )
+		formatString: #,0
+		displayFolder: Demand
+		lineageTag: 562710c8-4127-5b28-a915-146158359e5e
+
+	/// Demand over the 30 dates before that
+	measure 'Demand Prior 30 Days MWh' =
+			VAR LastDate =
+			    CALCULATE ( MAXX ( Fact_EnergyDemand, RELATED ( Dim_Date[full_date] ) ), ALL ( Dim_Date ) )
+			RETURN
+			    CALCULATE ( [Energy Demand MWh], DATESINPERIOD ( Dim_Date[full_date], LastDate - 30, -30, DAY ) )
+		formatString: #,0
+		displayFolder: Demand
+		lineageTag: 86318910-fe3b-537a-9309-c740fb656a4a
+
+	/// Last 30 days versus the prior 30 days
+	measure 'Demand Change 30 Days' = DIVIDE ( [Demand Last 30 Days MWh] - [Demand Prior 30 Days MWh], [Demand Prior 30 Days MWh] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Demand
+		lineageTag: 9a53bb5b-1d9a-5ea5-bafd-f0d77edd0145
+
+	/// Actual demand over the last 90 dates
+	measure 'Trailing 90 Days MWh' =
+			VAR LastDate =
+			    CALCULATE ( MAXX ( Fact_EnergyDemand, RELATED ( Dim_Date[full_date] ) ), ALL ( Dim_Date ) )
+			RETURN
+			    CALCULATE ( [Energy Demand MWh], DATESINPERIOD ( Dim_Date[full_date], LastDate, -90, DAY ) )
+		formatString: #,0
+		displayFolder: Demand
+		lineageTag: 168e5323-4da6-56f5-afd2-3999639d18bc
+
+	/// Next 90 days forecast versus the trailing 90 days
+	measure 'Forecast vs Trailing 90 Days' = DIVIDE ( [Forecast MWh] - [Trailing 90 Days MWh], [Trailing 90 Days MWh] )
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: Demand
+		lineageTag: ce3bd7ed-8434-54ec-b633-f8d29a0f1859
+
+	measure 'Average Load Factor' = AVERAGE ( Fact_EnergyDemand[load_factor] )
+		formatString: 0.0%
+		displayFolder: Demand
+		lineageTag: d293c146-3491-5e4f-9017-a749e6443310
+
+	/// Location-days flagged as storms
+	measure 'Storm Days' = CALCULATE ( COUNTROWS ( Dim_Weather ), Dim_Weather[storm_flag] = 1 )
+		formatString: #,0
+		displayFolder: Weather
+		lineageTag: a8ab5de7-495b-5c74-bfc3-b4476c9b39da
+
+	measure 'Average Temperature C' = AVERAGE ( Dim_Weather[temperature_c] )
+		formatString: 0.0
+		displayFolder: Weather
+		lineageTag: 95865262-d07a-5b7c-b6f4-4423260c9ad6
+
+	measure 'Average Weather Severity' = AVERAGE ( Dim_Weather[severity_score] )
+		formatString: 0.00
+		displayFolder: Weather
+		lineageTag: d7f909f5-5a72-5dfe-b4ea-3dff0915ef09
+
+	column Value
+		dataType: string
+		isHidden
+		lineageTag: e733ca66-3bd6-509d-9e25-c489bb33c094
+		summarizeBy: none
+		sourceColumn: Value
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table ( type table [ Value = text ], {} )
+				in
+				    Source

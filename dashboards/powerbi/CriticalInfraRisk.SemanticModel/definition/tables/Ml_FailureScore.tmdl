@@ -1,0 +1,32 @@
+/// Latest equipment failure probability per asset.
+table Ml_FailureScore
+	lineageTag: fc3dbf64-e14d-5d77-b2dd-b65c777a00dc
+
+	column asset_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f434182e-b69d-562f-918b-33dc00e185a3
+		summarizeBy: none
+		sourceColumn: asset_id
+
+	column month
+		dataType: string
+		lineageTag: c66cc800-c4b6-5653-b0cc-8125faa3a056
+		summarizeBy: none
+		sourceColumn: month
+
+	column failure_probability
+		dataType: double
+		lineageTag: bc79a344-8737-5e4b-8451-0af9db86fc94
+		summarizeBy: sum
+		sourceColumn: failure_probability
+
+	partition Ml_FailureScore = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Ml_FailureScore.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"asset_id", Int64.Type}, {"month", type text}, {"failure_probability", type number}}, "en-US" )
+				in
+				    Typed

@@ -1,0 +1,99 @@
+relationship 817069ed-78ec-5bea-8af2-0a12682c1aa1
+	fromColumn: Fact_Outages.asset_id
+	toColumn: Dim_Asset.asset_id
+
+relationship 46834b9c-e90a-5e87-8804-b9b9efbc9ad4
+	isActive: false
+	fromColumn: Fact_Outages.location_id
+	toColumn: Dim_Location.location_id
+
+relationship 0ee34a6a-cebf-50a7-8318-5291847e6fad
+	fromColumn: Fact_Outages.date_key
+	toColumn: Dim_Date.date_key
+
+relationship 0bae039f-a698-5be4-8abc-607f45562e9e
+	isActive: false
+	fromColumn: Fact_Outages.weather_id
+	toColumn: Dim_Weather.weather_id
+
+relationship 20500640-88fa-50b8-a6c5-e8bcaa8d0ef5
+	fromColumn: Fact_Incidents.asset_id
+	toColumn: Dim_Asset.asset_id
+
+relationship ad50973f-07de-5685-b4a8-549b445806e2
+	isActive: false
+	fromColumn: Fact_Incidents.location_id
+	toColumn: Dim_Location.location_id
+
+relationship 6ab89dd2-953f-54e3-a504-3db007b9d1e0
+	fromColumn: Fact_Incidents.date_key
+	toColumn: Dim_Date.date_key
+
+relationship 20b554c5-676a-516e-aa12-87a1117069a5
+	isActive: false
+	fromColumn: Fact_Incidents.weather_id
+	toColumn: Dim_Weather.weather_id
+
+relationship 1f0eec2a-5a00-5375-a1e7-fd246f9a0580
+	fromColumn: Fact_EnergyDemand.location_id
+	toColumn: Dim_Location.location_id
+
+relationship 8c31e624-c850-5388-b782-e901fe1b2000
+	fromColumn: Fact_EnergyDemand.date_key
+	toColumn: Dim_Date.date_key
+
+relationship c982210e-c7db-5dad-9e3a-c9bd8a9c4a77
+	fromColumn: Fact_Maintenance.asset_id
+	toColumn: Dim_Asset.asset_id
+
+relationship 7f0fdc62-d17c-563b-94d8-d0748ed7a8e0
+	isActive: false
+	fromColumn: Fact_Maintenance.location_id
+	toColumn: Dim_Location.location_id
+
+relationship 398cfde6-0433-5e49-b844-246e8d7cefa8
+	fromColumn: Fact_Maintenance.date_key
+	toColumn: Dim_Date.date_key
+
+relationship 35b650df-f81d-5257-83a8-75922254dccc
+	fromCardinality: one
+	crossFilteringBehavior: bothDirections
+	fromColumn: Mart_AssetRisk.asset_id
+	toColumn: Dim_Asset.asset_id
+
+relationship e2b636ff-9614-5969-8682-cb542fdb7c02
+	isActive: false
+	fromColumn: Mart_AssetRisk.location_id
+	toColumn: Dim_Location.location_id
+
+relationship cdcf8202-dec3-536b-acf5-4362fec25445
+	fromColumn: Mart_AssetRisk.risk_label
+	toColumn: Dim_RiskLevel.risk_label
+
+relationship 8dd8d0f8-8bef-55bb-8f22-57b7fd84de03
+	fromColumn: Ml_HealthScore.asset_id
+	toColumn: Dim_Asset.asset_id
+
+relationship cdb8f5e0-b17e-5a41-a8b7-af0b7a979547
+	fromColumn: Ml_OutageScore.asset_id
+	toColumn: Dim_Asset.asset_id
+
+relationship 3cd72ae3-3c24-5bb7-8ae9-cb22fb997e0a
+	fromColumn: Ml_FailureScore.asset_id
+	toColumn: Dim_Asset.asset_id
+
+relationship 46a6f500-3405-511b-8c18-1f785318f9cf
+	fromColumn: Ml_DemandForecast.location_id
+	toColumn: Dim_Location.location_id
+
+relationship ac9a3031-e842-57b7-a5aa-b322ec8ac77f
+	fromColumn: Dim_Asset.location_id
+	toColumn: Dim_Location.location_id
+
+relationship 241b18cb-fddc-5368-a9da-67ba1dccad87
+	fromColumn: Dim_Weather.location_id
+	toColumn: Dim_Location.location_id
+
+relationship f87c3ed0-e63b-5529-9f45-42612f56c88c
+	fromColumn: Dim_Weather.date_key
+	toColumn: Dim_Date.date_key

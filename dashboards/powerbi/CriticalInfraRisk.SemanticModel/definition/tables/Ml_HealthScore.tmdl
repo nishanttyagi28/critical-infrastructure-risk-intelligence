@@ -1,0 +1,26 @@
+/// Health score per asset (0 to 100).
+table Ml_HealthScore
+	lineageTag: a0154755-3264-53c8-a02d-435190f3ec7d
+
+	column asset_id
+		dataType: int64
+		formatString: 0
+		lineageTag: a7a9a011-bf20-5003-b65c-f26c3c791b88
+		summarizeBy: none
+		sourceColumn: asset_id
+
+	column health_score
+		dataType: double
+		lineageTag: fadcdfc3-0297-50a5-bff4-65a6357dd34c
+		summarizeBy: sum
+		sourceColumn: health_score
+
+	partition Ml_HealthScore = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Ml_HealthScore.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"asset_id", Int64.Type}, {"health_score", type number}}, "en-US" )
+				in
+				    Typed

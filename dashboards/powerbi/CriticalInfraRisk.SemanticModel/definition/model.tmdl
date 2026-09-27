@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: en-US
+
+annotation PBI_QueryOrder = ["DataFolder", "Dim_Date", "Dim_Location", "Dim_Asset", "Dim_Weather", "Dim_RiskLevel", "Fact_Outages", "Fact_Incidents", "Fact_EnergyDemand", "Fact_Maintenance", "Mart_AssetRisk", "Ml_OutageScore", "Ml_FailureScore", "Ml_HealthScore", "Ml_DemandForecast", "_Measures"]
+
+ref table Dim_Date
+ref table Dim_Location
+ref table Dim_Asset
+ref table Dim_Weather
+ref table Dim_RiskLevel
+ref table Fact_Outages
+ref table Fact_Incidents
+ref table Fact_EnergyDemand
+ref table Fact_Maintenance
+ref table Mart_AssetRisk
+ref table Ml_OutageScore
+ref table Ml_FailureScore
+ref table Ml_HealthScore
+ref table Ml_DemandForecast
+ref table _Measures

@@ -1,0 +1,32 @@
+/// Latest outage probability per asset.
+table Ml_OutageScore
+	lineageTag: a0b41b92-7ee3-512b-81e4-bfdd296ea169
+
+	column asset_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c9dbac5b-8da4-5c5f-a2bf-4b4d1d1ec9f3
+		summarizeBy: none
+		sourceColumn: asset_id
+
+	column month
+		dataType: string
+		lineageTag: 6feb758c-b878-5867-be42-be30b801bad9
+		summarizeBy: none
+		sourceColumn: month
+
+	column outage_probability
+		dataType: double
+		lineageTag: 63b367a9-4eb3-5713-873f-39a90c0e4476
+		summarizeBy: sum
+		sourceColumn: outage_probability
+
+	partition Ml_OutageScore = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Ml_OutageScore.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"asset_id", Int64.Type}, {"month", type text}, {"outage_probability", type number}}, "en-US" )
+				in
+				    Typed

@@ -1,0 +1,67 @@
+/// Completed maintenance jobs with type, cost and duration.
+table Fact_Maintenance
+	lineageTag: bee92239-57be-5552-a9bf-77a1155d3b79
+
+	column maintenance_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 131ce543-631a-5ba8-a84f-e9dbb9a65219
+		summarizeBy: none
+		sourceColumn: maintenance_id
+
+	column asset_id
+		dataType: int64
+		formatString: 0
+		lineageTag: fb09fa9f-af88-50b6-9a5c-9128328059a6
+		summarizeBy: none
+		sourceColumn: asset_id
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6a693dc7-6816-5a77-aed8-12e201129486
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a423e03-7114-51ae-86d0-dc8e92260cad
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column maintenance_type
+		dataType: string
+		lineageTag: 5b2e7a96-d978-5bef-80b6-2aa76d19e073
+		summarizeBy: none
+		sourceColumn: maintenance_type
+
+	column cost_usd
+		dataType: int64
+		formatString: 0
+		lineageTag: d3871136-12f2-5ee6-86f7-122e8a0ab648
+		summarizeBy: sum
+		sourceColumn: cost_usd
+
+	column duration_hours
+		dataType: double
+		lineageTag: 10b47bc5-7351-507b-ad96-c3f7f34000d7
+		summarizeBy: sum
+		sourceColumn: duration_hours
+
+	column completed
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f91afde-b52d-5ad5-93af-88e72b10994f
+		summarizeBy: none
+		sourceColumn: completed
+
+	partition Fact_Maintenance = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Fact_Maintenance.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"maintenance_id", Int64.Type}, {"asset_id", Int64.Type}, {"location_id", Int64.Type}, {"date_key", Int64.Type}, {"maintenance_type", type text}, {"cost_usd", Int64.Type}, {"duration_hours", type number}, {"completed", Int64.Type}}, "en-US" )
+				in
+				    Typed

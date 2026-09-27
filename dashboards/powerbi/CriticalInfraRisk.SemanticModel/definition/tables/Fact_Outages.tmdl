@@ -1,0 +1,74 @@
+/// One row per outage event with duration, customers affected and cause.
+table Fact_Outages
+	lineageTag: 3ce8300a-181b-59a6-bc8c-e91d29efa17e
+
+	column outage_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 32cd5c69-bc7e-5c83-b031-94bfd8b69877
+		summarizeBy: none
+		sourceColumn: outage_id
+
+	column asset_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 176b368a-b5ef-5b7d-8b64-aa63fbc6fe18
+		summarizeBy: none
+		sourceColumn: asset_id
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f731480e-a18b-534f-a1a9-15e7795a364b
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 432229c4-6214-5a5d-afcc-9dc6b92e08d5
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column weather_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0595f2ef-e4d5-5842-b3fe-c74882821229
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column duration_hours
+		dataType: double
+		lineageTag: 6c7d1d6a-00f1-57b7-9b53-95974c1eb3e9
+		summarizeBy: sum
+		sourceColumn: duration_hours
+
+	column customers_affected
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b097cd2-d839-5d6d-86a3-020269355671
+		summarizeBy: sum
+		sourceColumn: customers_affected
+
+	column cause
+		dataType: string
+		lineageTag: 65436cc5-7d44-51b9-b51b-32931df18edf
+		summarizeBy: none
+		sourceColumn: cause
+
+	column outage_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 7ce45306-74f8-55b9-870d-4bf4f74e6d5d
+		summarizeBy: none
+		sourceColumn: outage_flag
+
+	partition Fact_Outages = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Fact_Outages.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"outage_id", Int64.Type}, {"asset_id", Int64.Type}, {"location_id", Int64.Type}, {"date_key", Int64.Type}, {"weather_id", Int64.Type}, {"duration_hours", type number}, {"customers_affected", Int64.Type}, {"cause", type text}, {"outage_flag", Int64.Type}}, "en-US" )
+				in
+				    Typed

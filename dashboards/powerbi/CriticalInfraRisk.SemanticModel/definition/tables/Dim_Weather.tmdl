@@ -1,0 +1,65 @@
+/// Daily weather per location: temperature, wind, precipitation, storm flag and severity.
+table Dim_Weather
+	lineageTag: a2aff0c2-481e-53d4-972f-cb0b9084a298
+
+	column weather_id
+		dataType: int64
+		formatString: 0
+		lineageTag: cf83ec3d-dacd-575d-9356-edddae6288f3
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 73b8728d-5d75-5a1e-a961-19d6043a3511
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f06a554a-ed1e-50a7-84be-7577577be60b
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column temperature_c
+		dataType: double
+		lineageTag: a58c95c1-5dfa-51db-9f0d-499584458961
+		summarizeBy: sum
+		sourceColumn: temperature_c
+
+	column wind_speed_kmh
+		dataType: double
+		lineageTag: da8f94aa-d821-5507-948b-6de8f7164ddc
+		summarizeBy: sum
+		sourceColumn: wind_speed_kmh
+
+	column precipitation_mm
+		dataType: double
+		lineageTag: efc97167-d379-5192-bc43-27f3045f691e
+		summarizeBy: sum
+		sourceColumn: precipitation_mm
+
+	column storm_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d8b8e8a-5e12-533e-94e4-bb5a7ec10ac0
+		summarizeBy: none
+		sourceColumn: storm_flag
+
+	column severity_score
+		dataType: double
+		lineageTag: f5ee6650-c1a0-596b-a22b-2269ebb1e0ee
+		summarizeBy: sum
+		sourceColumn: severity_score
+
+	partition Dim_Weather = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Dim_Weather.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"weather_id", Int64.Type}, {"location_id", Int64.Type}, {"date_key", Int64.Type}, {"temperature_c", type number}, {"wind_speed_kmh", type number}, {"precipitation_mm", type number}, {"storm_flag", Int64.Type}, {"severity_score", type number}}, "en-US" )
+				in
+				    Typed

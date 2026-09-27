@@ -1,0 +1,40 @@
+/// 90-day energy demand forecast per location.
+table Ml_DemandForecast
+	lineageTag: da99f95a-ffac-5d76-a675-a1bcc6436a88
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b0cee0b3-921c-5fbb-8b33-43e7d8c28e05
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column full_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 59f06ada-aa77-5049-975c-98560914066a
+		summarizeBy: none
+		sourceColumn: full_date
+
+	column forecast_mwh
+		dataType: double
+		lineageTag: 3c1d9b8b-382a-54b4-9a7c-057dc53fc6ea
+		summarizeBy: sum
+		sourceColumn: forecast_mwh
+
+	column horizon_day
+		dataType: int64
+		formatString: 0
+		lineageTag: 86dabfb6-0232-5043-8c06-0fd385edd97c
+		summarizeBy: none
+		sourceColumn: horizon_day
+
+	partition Ml_DemandForecast = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Ml_DemandForecast.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"location_id", Int64.Type}, {"full_date", type date}, {"forecast_mwh", type number}, {"horizon_day", Int64.Type}}, "en-US" )
+				in
+				    Typed

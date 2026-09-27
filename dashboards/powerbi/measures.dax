@@ -44,3 +44,71 @@ Maintenance Cost = SUM ( Fact_Maintenance[cost_usd] )
 Forecast MWh = SUM ( Ml_DemandForecast[forecast_mwh] )
 
 Average Health = AVERAGE ( Ml_HealthScore[health_score] )
+
+-- Additional KPIs used by the report pages (definitions in docs/kpis.md).
+-- The demand windows are anchored on the last date in Fact_EnergyDemand, so they ignore date slicers.
+
+Predicted Outages =
+    CALCULATE ( COUNTROWS ( Ml_OutageScore ), Ml_OutageScore[outage_probability] >= 0.5 )
+
+Average Outage Probability = AVERAGE ( Ml_OutageScore[outage_probability] )
+
+Average Failure Probability = AVERAGE ( Ml_FailureScore[failure_probability] )
+
+Assets at Risk = [Critical Risks] + [High Risks]
+
+At-Risk Share = DIVIDE ( [Assets at Risk], COUNTROWS ( Mart_AssetRisk ) )
+
+Maintenance Backlog =
+    CALCULATE ( COUNTROWS ( Mart_AssetRisk ), Mart_AssetRisk[maintenance_365d] <= 1 )
+
+Incidents = COUNTROWS ( Fact_Incidents )
+
+Critical Incidents =
+    CALCULATE ( COUNTROWS ( Fact_Incidents ), Fact_Incidents[severity] = "critical" )
+
+Average Resolution Hours = AVERAGE ( Fact_Incidents[resolution_hours] )
+
+Outage Hours = SUM ( Fact_Outages[duration_hours] )
+
+Customer Hours Interrupted =
+    SUMX ( Fact_Outages, Fact_Outages[duration_hours] * Fact_Outages[customers_affected] )
+
+Average Cost per Job = DIVIDE ( [Maintenance Cost], [Maintenance Jobs] )
+
+Preventive Share =
+    DIVIDE ( CALCULATE ( [Maintenance Jobs], Fact_Maintenance[maintenance_type] = "preventive" ), [Maintenance Jobs] )
+
+Maintenance Hours = SUM ( Fact_Maintenance[duration_hours] )
+
+Demand Last 30 Days MWh =
+    VAR LastDate =
+        CALCULATE ( MAXX ( Fact_EnergyDemand, RELATED ( Dim_Date[full_date] ) ), ALL ( Dim_Date ) )
+    RETURN
+        CALCULATE ( [Energy Demand MWh], DATESINPERIOD ( Dim_Date[full_date], LastDate, -30, DAY ) )
+
+Demand Prior 30 Days MWh =
+    VAR LastDate =
+        CALCULATE ( MAXX ( Fact_EnergyDemand, RELATED ( Dim_Date[full_date] ) ), ALL ( Dim_Date ) )
+    RETURN
+        CALCULATE ( [Energy Demand MWh], DATESINPERIOD ( Dim_Date[full_date], LastDate - 30, -30, DAY ) )
+
+Demand Change 30 Days =
+    DIVIDE ( [Demand Last 30 Days MWh] - [Demand Prior 30 Days MWh], [Demand Prior 30 Days MWh] )
+
+Trailing 90 Days MWh =
+    VAR LastDate =
+        CALCULATE ( MAXX ( Fact_EnergyDemand, RELATED ( Dim_Date[full_date] ) ), ALL ( Dim_Date ) )
+    RETURN
+        CALCULATE ( [Energy Demand MWh], DATESINPERIOD ( Dim_Date[full_date], LastDate, -90, DAY ) )
+
+Forecast vs Trailing 90 Days =
+    DIVIDE ( [Forecast MWh] - [Trailing 90 Days MWh], [Trailing 90 Days MWh] )
+
+Average Load Factor = AVERAGE ( Fact_EnergyDemand[load_factor] )
+
+Storm Days = CALCULATE ( COUNTROWS ( Dim_Weather ), Dim_Weather[storm_flag] = 1 )
+
+Average Temperature C = AVERAGE ( Dim_Weather[temperature_c] )
+
+Average Weather Severity = AVERAGE ( Dim_Weather[severity_score] )

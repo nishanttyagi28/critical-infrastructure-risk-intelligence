@@ -1,0 +1,72 @@
+/// 24 cities in 8 grid regions with coordinates and grid zone.
+table Dim_Location
+	lineageTag: 52ea69e8-dc58-5e25-843f-710de53cd14f
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: ca31d15a-4ba3-52c7-8c11-ffa371e480fc
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column region
+		dataType: string
+		lineageTag: 0aeb74f4-536d-5288-bf3d-3da61d0a9482
+		summarizeBy: none
+		sourceColumn: region
+
+	column city
+		dataType: string
+		dataCategory: City
+		lineageTag: 83b38503-86e7-576d-93cd-ee17c7abb995
+		summarizeBy: none
+		sourceColumn: city
+
+	column latitude
+		dataType: double
+		dataCategory: Latitude
+		lineageTag: 302c05be-3729-50a6-b4e1-c25b5a186067
+		summarizeBy: none
+		sourceColumn: latitude
+
+	column longitude
+		dataType: double
+		dataCategory: Longitude
+		lineageTag: a1f83691-a37d-5ff6-a4c6-873da29031d6
+		summarizeBy: none
+		sourceColumn: longitude
+
+	column grid_zone
+		dataType: string
+		lineageTag: 895cd613-ae8f-59fc-8c0b-c62d7398a8d1
+		summarizeBy: none
+		sourceColumn: grid_zone
+
+	column criticality
+		dataType: string
+		lineageTag: 7c0db50f-c0e1-5ae0-9a74-b75098710c31
+		summarizeBy: none
+		sourceColumn: criticality
+
+	column base_mwh
+		dataType: int64
+		formatString: 0
+		lineageTag: c07aa1c3-6023-5230-b758-9eab6a766301
+		summarizeBy: sum
+		sourceColumn: base_mwh
+
+	column temp_delta
+		dataType: double
+		lineageTag: 7a08edaa-b589-5bd1-a470-022b5aa70a1a
+		summarizeBy: sum
+		sourceColumn: temp_delta
+
+	partition Dim_Location = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Dim_Location.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"location_id", Int64.Type}, {"region", type text}, {"city", type text}, {"latitude", type number}, {"longitude", type number}, {"grid_zone", type text}, {"criticality", type text}, {"base_mwh", Int64.Type}, {"temp_delta", type number}}, "en-US" )
+				in
+				    Typed

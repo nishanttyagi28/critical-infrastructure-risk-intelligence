@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "CriticalInfraRisk"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9f8ccc27-249c-5dc5-a381-8a0855272ea8"
+  }
+}

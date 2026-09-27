@@ -1,0 +1,111 @@
+/// Current composite risk score per asset. Not filtered by date.
+table Mart_AssetRisk
+	lineageTag: 56fe8c4b-098f-5b76-9064-faca245e3952
+
+	column asset_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f360e686-d8ae-5017-80cb-50a6456e3304
+		summarizeBy: none
+		sourceColumn: asset_id
+
+	column asset_name
+		dataType: string
+		lineageTag: de2c71ed-1dca-5e52-ad24-b82bba695b94
+		summarizeBy: none
+		sourceColumn: asset_name
+
+	column asset_type
+		dataType: string
+		lineageTag: 66f76e80-bd1c-549f-aa5a-b633b1a8fbe1
+		summarizeBy: none
+		sourceColumn: asset_type
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 15c50b11-03ed-5287-88ca-a089beba3ddf
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column region
+		dataType: string
+		lineageTag: 5757cfac-d3b9-5f36-9937-274cf83c6ad4
+		summarizeBy: none
+		sourceColumn: region
+
+	column city
+		dataType: string
+		dataCategory: City
+		lineageTag: 6b513c74-7622-5361-aff1-64c4df85e420
+		summarizeBy: none
+		sourceColumn: city
+
+	column latitude
+		dataType: double
+		dataCategory: Latitude
+		lineageTag: 1c963e7b-0291-5eb4-815d-1aeec079b144
+		summarizeBy: none
+		sourceColumn: latitude
+
+	column longitude
+		dataType: double
+		dataCategory: Longitude
+		lineageTag: c4256f9a-4596-590e-bf60-d28912bf167e
+		summarizeBy: none
+		sourceColumn: longitude
+
+	column age_years
+		dataType: int64
+		formatString: 0
+		lineageTag: b4be4a2f-cda6-5348-97e7-fc960e20de50
+		summarizeBy: sum
+		sourceColumn: age_years
+
+	column failures_365d
+		dataType: int64
+		formatString: 0
+		lineageTag: 33a00876-41b7-53f4-b65c-18b2d9085986
+		summarizeBy: sum
+		sourceColumn: failures_365d
+
+	column weather_severity_30d
+		dataType: double
+		lineageTag: ca62dc75-7452-5e43-9334-11b6a3ac333b
+		summarizeBy: sum
+		sourceColumn: weather_severity_30d
+
+	column maintenance_365d
+		dataType: int64
+		formatString: 0
+		lineageTag: cb4623e1-5369-51df-9e5a-e6997653771d
+		summarizeBy: sum
+		sourceColumn: maintenance_365d
+
+	column load_index
+		dataType: double
+		lineageTag: fdcf71ea-439c-5cdb-b2a1-b996bebbfb8d
+		summarizeBy: sum
+		sourceColumn: load_index
+
+	column risk_score
+		dataType: double
+		lineageTag: b9ac56fc-b667-5899-adf8-b5f6e45de38e
+		summarizeBy: sum
+		sourceColumn: risk_score
+
+	column risk_label
+		dataType: string
+		lineageTag: 20f7f5e1-bf8a-545e-8918-be9e6414c570
+		summarizeBy: none
+		sourceColumn: risk_label
+
+	partition Mart_AssetRisk = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Mart_AssetRisk.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"asset_id", Int64.Type}, {"asset_name", type text}, {"asset_type", type text}, {"location_id", Int64.Type}, {"region", type text}, {"city", type text}, {"latitude", type number}, {"longitude", type number}, {"age_years", Int64.Type}, {"failures_365d", Int64.Type}, {"weather_severity_30d", type number}, {"maintenance_365d", Int64.Type}, {"load_index", type number}, {"risk_score", type number}, {"risk_label", type text}}, "en-US" )
+				in
+				    Typed

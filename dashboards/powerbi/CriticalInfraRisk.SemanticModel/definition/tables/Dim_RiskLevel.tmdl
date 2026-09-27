@@ -1,0 +1,41 @@
+/// Risk band lookup (Low, Medium, High, Critical) with score ranges.
+table Dim_RiskLevel
+	lineageTag: d87fd0be-9dbb-5351-a111-3331ddf6bb3c
+
+	column risk_level_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 59474cbc-3649-5167-8fb1-4ac236c36bb6
+		summarizeBy: none
+		sourceColumn: risk_level_id
+
+	column risk_label
+		dataType: string
+		lineageTag: b4880d21-875e-5cb8-adb2-e68538bd7110
+		summarizeBy: none
+		sourceColumn: risk_label
+		sortByColumn: risk_level_id
+
+	column min_score
+		dataType: int64
+		formatString: 0
+		lineageTag: baecd044-af9f-5f8f-b075-fabdddab6f0c
+		summarizeBy: none
+		sourceColumn: min_score
+
+	column max_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 7323310c-d808-55ce-a6a2-2d5f25236d55
+		summarizeBy: none
+		sourceColumn: max_score
+
+	partition Dim_RiskLevel = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Dim_RiskLevel.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"risk_level_id", Int64.Type}, {"risk_label", type text}, {"min_score", Int64.Type}, {"max_score", Int64.Type}}, "en-US" )
+				in
+				    Typed

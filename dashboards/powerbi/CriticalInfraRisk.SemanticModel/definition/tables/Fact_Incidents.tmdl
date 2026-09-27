@@ -1,0 +1,78 @@
+/// Operational incidents with severity, category, status and resolution time.
+table Fact_Incidents
+	lineageTag: 7539e40c-6623-5aec-a599-c025ddaccf30
+
+	column incident_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 92061b8b-61f1-59cd-abe1-7c4390da7648
+		summarizeBy: none
+		sourceColumn: incident_id
+
+	column asset_id
+		dataType: int64
+		formatString: 0
+		lineageTag: d916013f-560e-50e2-a3f9-26ae1f324dc9
+		summarizeBy: none
+		sourceColumn: asset_id
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0124e606-e3ee-555c-9570-7159cc7df937
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e4fa33a-df8e-51dc-bc26-136c2faa9f4d
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column weather_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 611ef730-004f-5e06-9219-94c5378d65b7
+		summarizeBy: none
+		sourceColumn: weather_id
+
+	column severity
+		dataType: string
+		lineageTag: 52ef080e-0c78-5471-8ac7-76718f0a2d21
+		summarizeBy: none
+		sourceColumn: severity
+
+	column category
+		dataType: string
+		lineageTag: 413a0cc3-dd15-5967-ad2d-9ae58b5a4455
+		summarizeBy: none
+		sourceColumn: category
+
+	column description
+		dataType: string
+		lineageTag: 50aa1859-462a-53a4-9660-38aa79719d4c
+		summarizeBy: none
+		sourceColumn: description
+
+	column status
+		dataType: string
+		lineageTag: bd7ea7d9-efca-5b52-985e-eaded67776d2
+		summarizeBy: none
+		sourceColumn: status
+
+	column resolution_hours
+		dataType: double
+		lineageTag: beb0bc09-8081-5e88-a700-279a38b1bcad
+		summarizeBy: sum
+		sourceColumn: resolution_hours
+
+	partition Fact_Incidents = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Fact_Incidents.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"incident_id", Int64.Type}, {"asset_id", Int64.Type}, {"location_id", Int64.Type}, {"date_key", Int64.Type}, {"weather_id", Int64.Type}, {"severity", type text}, {"category", type text}, {"description", type text}, {"status", type text}, {"resolution_hours", type number}}, "en-US" )
+				in
+				    Typed

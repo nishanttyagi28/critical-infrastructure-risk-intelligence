@@ -1,0 +1,93 @@
+/// 192 grid assets: transmission lines, generation units and battery storage.
+table Dim_Asset
+	lineageTag: 5bd235b1-e1e6-55c1-8174-6f94b7e7b821
+
+	column asset_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c80cdf15-433a-5051-bd15-481180fca214
+		summarizeBy: none
+		sourceColumn: asset_id
+
+	column asset_name
+		dataType: string
+		lineageTag: e4e3e3fe-e396-50e6-b968-09cc35a0505e
+		summarizeBy: none
+		sourceColumn: asset_name
+
+	column asset_type
+		dataType: string
+		lineageTag: 97843717-8071-532d-98fb-20214cf0d546
+		summarizeBy: none
+		sourceColumn: asset_type
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b7efb32-7618-5c4b-b75f-6e562f56a6cc
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column commissioned_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: affafcab-9fa2-5026-be25-5e467d246400
+		summarizeBy: none
+		sourceColumn: commissioned_date
+
+	column age_years
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ba3e29c-49b2-5261-827f-071cdb70b386
+		summarizeBy: sum
+		sourceColumn: age_years
+
+	column manufacturer
+		dataType: string
+		lineageTag: 8e70923e-0625-5ddc-90f0-706356f40423
+		summarizeBy: none
+		sourceColumn: manufacturer
+
+	column capacity_mw
+		dataType: int64
+		formatString: 0
+		lineageTag: ef94e119-bef8-5855-8725-710625794331
+		summarizeBy: sum
+		sourceColumn: capacity_mw
+
+	column voltage_kv
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ab162b3-41f9-5f79-a91d-3a6a69631db4
+		summarizeBy: sum
+		sourceColumn: voltage_kv
+
+	column customer_exposure
+		dataType: int64
+		formatString: 0
+		lineageTag: 6c14e18a-2ef0-56fc-b5f6-2549e06fe79a
+		summarizeBy: sum
+		sourceColumn: customer_exposure
+
+	column status
+		dataType: string
+		lineageTag: 24f9f547-d940-5b2a-89cc-21d5af13c158
+		summarizeBy: none
+		sourceColumn: status
+
+	column on_maintenance_program
+		dataType: int64
+		formatString: 0
+		lineageTag: a5aec2d9-ab69-5bde-aad8-d17d1eb0091d
+		summarizeBy: none
+		sourceColumn: on_maintenance_program
+
+	partition Dim_Asset = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Dim_Asset.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"asset_id", Int64.Type}, {"asset_name", type text}, {"asset_type", type text}, {"location_id", Int64.Type}, {"commissioned_date", type date}, {"age_years", Int64.Type}, {"manufacturer", type text}, {"capacity_mw", Int64.Type}, {"voltage_kv", Int64.Type}, {"customer_exposure", Int64.Type}, {"status", type text}, {"on_maintenance_program", Int64.Type}}, "en-US" )
+				in
+				    Typed

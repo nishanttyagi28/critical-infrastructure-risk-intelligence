@@ -1,0 +1,5 @@
+/// Full path to the repo's dashboards\powerbi\extracts folder. Every table reads its CSV from here.
+expression DataFolder = "C:\\critical-infrastructure-risk-intelligence\\dashboards\\powerbi\\extracts" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: 25cc7897-cebb-51da-95ec-ba068822324b
+
+	annotation PBI_ResultType = Text

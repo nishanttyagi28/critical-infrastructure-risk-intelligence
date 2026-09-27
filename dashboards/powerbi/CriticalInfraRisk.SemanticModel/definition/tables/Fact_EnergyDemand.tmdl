@@ -1,0 +1,52 @@
+/// Daily energy demand per location with peak load and load factor.
+table Fact_EnergyDemand
+	lineageTag: 867fe0cf-f77c-547b-a4bb-a13304a882be
+
+	column demand_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b0e18a1f-8cd4-5f68-a627-00a9e721f8cd
+		summarizeBy: none
+		sourceColumn: demand_id
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 6530a5ee-0211-5540-9173-84aadb60e5cf
+		summarizeBy: none
+		sourceColumn: location_id
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: baabe1c1-a172-5f3d-a5c2-9759a30b0660
+		summarizeBy: none
+		sourceColumn: date_key
+
+	column demand_mwh
+		dataType: double
+		lineageTag: bba41422-da74-5914-b6fc-51261d8aee02
+		summarizeBy: sum
+		sourceColumn: demand_mwh
+
+	column peak_mw
+		dataType: double
+		lineageTag: a3d1aa3a-164c-54af-8252-63701c64d4b5
+		summarizeBy: sum
+		sourceColumn: peak_mw
+
+	column load_factor
+		dataType: double
+		lineageTag: b61d33bd-a0ca-50ca-a101-40d663f139bb
+		summarizeBy: sum
+		sourceColumn: load_factor
+
+	partition Fact_EnergyDemand = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document ( File.Contents ( DataFolder & "\Fact_EnergyDemand.csv" ), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv] ),
+				    Promoted = Table.PromoteHeaders ( Source, [PromoteAllScalars = true] ),
+				    Typed = Table.TransformColumnTypes ( Promoted, {{"demand_id", Int64.Type}, {"location_id", Int64.Type}, {"date_key", Int64.Type}, {"demand_mwh", type number}, {"peak_mw", type number}, {"load_factor", type number}}, "en-US" )
+				in
+				    Typed

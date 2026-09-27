@@ -7,3 +7,7 @@ logs/
 data/warehouse/*.db
 .env
 .streamlit/secrets.toml
+
+# Power BI local files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
