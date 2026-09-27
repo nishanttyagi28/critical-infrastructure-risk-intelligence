@@ -1,0 +1,46 @@
+-- Measures for the AetherGrid semantic model.
+-- Tables match sql/001_star_schema.sql and the CSV extracts in extracts/.
+
+Total Assets = DISTINCTCOUNT ( Dim_Asset[asset_id] )
+
+Active Incidents =
+CALCULATE (
+    COUNTROWS ( Fact_Incidents ),
+    Fact_Incidents[status] = "open"
+)
+
+Critical Risks =
+CALCULATE (
+    COUNTROWS ( Mart_AssetRisk ),
+    Mart_AssetRisk[risk_label] = "Critical"
+)
+
+High Risks =
+CALCULATE (
+    COUNTROWS ( Mart_AssetRisk ),
+    Mart_AssetRisk[risk_label] = "High"
+)
+
+Predicted Failures =
+CALCULATE (
+    COUNTROWS ( Ml_FailureScore ),
+    Ml_FailureScore[failure_probability] >= 0.5
+)
+
+Outage Count = COUNTROWS ( Fact_Outages )
+
+Customers Affected = SUM ( Fact_Outages[customers_affected] )
+
+Average Outage Hours = AVERAGE ( Fact_Outages[duration_hours] )
+
+Energy Demand MWh = SUM ( Fact_EnergyDemand[demand_mwh] )
+
+Average Risk Score = AVERAGE ( Mart_AssetRisk[risk_score] )
+
+Maintenance Jobs = COUNTROWS ( Fact_Maintenance )
+
+Maintenance Cost = SUM ( Fact_Maintenance[cost_usd] )
+
+Forecast MWh = SUM ( Ml_DemandForecast[forecast_mwh] )
+
+Average Health = AVERAGE ( Ml_HealthScore[health_score] )

@@ -1,0 +1,1 @@
+"""Composite asset risk score."""

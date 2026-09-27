@@ -1,0 +1,9 @@
+location_id,region,city,latitude,longitude,grid_zone,criticality,base_mwh,temp_delta
+1,North Intertie,Duluth,46.7867,-92.0945,MRO-N,high,4200,-4.0
+2,Metro Ring,Minneapolis,44.9723,-93.2828,MRO-C,critical,9100,0.0
+3,Industrial Belt,Gary,41.5843,-87.3662,RFC-W,high,7600,1.5
+4,River Hydro,La Crosse,43.8026,-91.2128,MRO-S,medium,2800,-1.0
+5,Coastal Corridor,Providence,41.8142,-71.4252,NPCC-S,high,5400,2.0
+6,Mountain Intertie,Bozeman,45.6868,-111.0358,WECC-N,medium,1900,-6.0
+7,Desert Solar,Tucson,32.2247,-110.9933,WECC-S,medium,3600,10.0
+8,Capital District,Albany,42.652,-73.7423,RFC-E,critical,4800,-0.5

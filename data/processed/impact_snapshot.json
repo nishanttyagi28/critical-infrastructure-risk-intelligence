@@ -1,0 +1,89 @@
+{
+  "kpis": {
+    "total_assets": 192.0,
+    "active_incidents": 16.0,
+    "critical_risks": 1.0,
+    "high_risks": 52.0,
+    "predicted_failures": 38.0,
+    "predicted_outages": 42.0,
+    "demand_last_30d_mwh": 3361747.76,
+    "demand_prior_30d_mwh": 3297122.46
+  },
+  "regions": [
+    {
+      "region": "Coastal Corridor",
+      "assets": 24,
+      "avg_risk": 43.02333333333333,
+      "critical": 0,
+      "high": 9
+    },
+    {
+      "region": "Metro Ring",
+      "assets": 24,
+      "avg_risk": 42.90875,
+      "critical": 0,
+      "high": 9
+    },
+    {
+      "region": "Mountain Intertie",
+      "assets": 24,
+      "avg_risk": 41.82458333333333,
+      "critical": 1,
+      "high": 5
+    },
+    {
+      "region": "North Intertie",
+      "assets": 24,
+      "avg_risk": 40.72958333333333,
+      "critical": 0,
+      "high": 6
+    },
+    {
+      "region": "River Hydro",
+      "assets": 24,
+      "avg_risk": 39.9875,
+      "critical": 0,
+      "high": 7
+    },
+    {
+      "region": "Industrial Belt",
+      "assets": 24,
+      "avg_risk": 39.15208333333333,
+      "critical": 0,
+      "high": 5
+    },
+    {
+      "region": "Desert Solar",
+      "assets": 24,
+      "avg_risk": 39.06125,
+      "critical": 0,
+      "high": 5
+    },
+    {
+      "region": "Capital District",
+      "assets": 24,
+      "avg_risk": 38.079166666666666,
+      "critical": 0,
+      "high": 6
+    }
+  ],
+  "quarter": {
+    "trailing_90d_mwh": 10108952.04,
+    "next_quarter_mwh": 9902535.06,
+    "delta_mwh": -206416.97999999858
+  },
+  "model_version": "1.0.1",
+  "rows": {
+    "Dim_Date": 547,
+    "Dim_Location": 24,
+    "Dim_Asset": 192,
+    "Dim_Weather": 13128,
+    "Dim_RiskLevel": 4,
+    "Fact_Outages": 156,
+    "Fact_Incidents": 252,
+    "Fact_EnergyDemand": 13128,
+    "Fact_Maintenance": 691,
+    "Ops_SensorReading": 8640,
+    "Fs_AssetMonth": 3456
+  }
+}

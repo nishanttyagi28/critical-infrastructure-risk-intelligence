@@ -1,0 +1,11 @@
+[project]
+name = "critical-infrastructure-risk-intelligence"
+version = "1.0.0"
+description = "AetherGrid critical infrastructure risk intelligence platform"
+requires-python = ">=3.11"
+readme = "README.md"
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+addopts = "-q"

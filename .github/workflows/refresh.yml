@@ -1,0 +1,29 @@
+name: Scheduled refresh
+
+on:
+  schedule:
+    - cron: "20 6 * * 1"
+  workflow_dispatch:
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install -r requirements.txt
+      - name: Rebuild the warehouse and retrain
+        run: python -m ciri bootstrap --tiny
+        env:
+          PYTHONPATH: src
+      - name: Upload model registry
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-registry
+          path: |
+            models/registry.json
+            models/metrics.json
+            models/experiments.jsonl

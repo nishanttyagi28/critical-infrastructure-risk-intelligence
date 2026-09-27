@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ciri
+      POSTGRES_PASSWORD: ciri
+      POSTGRES_DB: ciri
+    ports:
+      - "54329:5432"
+    volumes:
+      - ciri-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ciri -d ciri"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://ciri:ciri@postgres:5432/ciri
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      PYTHONPATH: /app/src
+    command: ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8766"]
+    ports:
+      - "8766:8766"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  console:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://ciri:ciri@postgres:5432/ciri
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      PYTHONPATH: /app/src
+    ports:
+      - "8765:8765"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  ciri-pg:

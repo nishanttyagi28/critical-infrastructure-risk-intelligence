@@ -1,0 +1,5 @@
+risk_level_id,risk_label,min_score,max_score
+1,Low,0,25
+2,Medium,25,50
+3,High,50,75
+4,Critical,75,100

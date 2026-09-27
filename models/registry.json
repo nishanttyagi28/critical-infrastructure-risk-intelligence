@@ -1,0 +1,57 @@
+{
+  "version": "1.0.1",
+  "trained_at": "2026-09-27T02:56:11.424561+00:00",
+  "data_hash": "9db3be5407be6ac8729956eb0c43fe9df3e0c7f5472fb5b242fa407eda0e5d14",
+  "params": {
+    "algorithm": "gradient_boosting",
+    "anomaly": "isolation_forest",
+    "seed": 42
+  },
+  "metrics": {
+    "outage": {
+      "accuracy": 0.7591145833333334,
+      "precision": 0.10106382978723404,
+      "recall": 0.5428571428571428,
+      "f1": 0.17040358744394618,
+      "roc_auc": 0.7201130383940753,
+      "rmse": null,
+      "mae": null
+    },
+    "failure": {
+      "accuracy": 0.7916666666666666,
+      "precision": 0.20930232558139536,
+      "recall": 0.6,
+      "f1": 0.3103448275862069,
+      "roc_auc": 0.792596516007533,
+      "rmse": null,
+      "mae": null
+    },
+    "demand": {
+      "accuracy": null,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "roc_auc": null,
+      "rmse": 233.95082755230158,
+      "mae": 170.1334890616641
+    },
+    "health": {
+      "accuracy": null,
+      "precision": null,
+      "recall": null,
+      "f1": null,
+      "roc_auc": null,
+      "rmse": 7.809280735171516,
+      "mae": 6.7142136191597
+    },
+    "anomaly": {
+      "accuracy": 0.9925925925925926,
+      "precision": 0.8923076923076924,
+      "recall": 0.8656716417910447,
+      "f1": 0.8787878787878788,
+      "roc_auc": 0.9953309182705679,
+      "rmse": null,
+      "mae": null
+    }
+  }
+}
