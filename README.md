@@ -71,12 +71,28 @@ pytest
 | AI Assistant | The four operating questions, plus a free-text box |
 | Incident Explorer | Causes, categories, outage trend, report text |
 
+## Power BI Dashboard
+
+A six-page Power BI report on the same star schema: [`dashboards/powerbi/CriticalInfraRisk.pbip`](dashboards/powerbi/CriticalInfraRisk.pbip), with a TMDL semantic model that loads the CSV extracts in `dashboards/powerbi/extracts/`.
+
+[Dashboard walkthrough (56 s)](dashboards/powerbi/dashboard-walkthrough.mp4)
+
+| | |
+| --- | --- |
+| **Executive Overview**: 192 assets, 16 open incidents, 1 critical and 52 high-risk assets, 38 predicted failures, 3.36M MWh in the last 30 days (+2.0%) ![Executive Overview](dashboards/powerbi/screenshots/01-executive-overview.png) | **Asset Risk**: average risk 40.6, 53 assets at risk (27.6%), average health 67.2, 42 predicted outages, region by asset type matrix, highest-risk assets ![Asset Risk](dashboards/powerbi/screenshots/02-asset-risk.png) |
+| **Incidents and Outages**: 156 outages, 517,760 customers affected, 4.22 h average, causes by month, open incidents ![Incidents and Outages](dashboards/powerbi/screenshots/03-incidents-outages.png) | **Maintenance**: 691 jobs, $10.04M, 63.1% preventive, 56 assets in the backlog ![Maintenance](dashboards/powerbi/screenshots/04-maintenance.png) |
+| **Energy Demand and Weather**: 73.17M MWh actual, trailing 90 days 10.11M against a 9.90M forecast, temperature and weather severity ![Energy Demand and Weather](dashboards/powerbi/screenshots/05-energy-demand-weather.png) | **Risk Map**: assets at risk by city, outage and failure probability by asset ![Risk Map](dashboards/powerbi/screenshots/06-risk-map.png) |
+
+It answers where risk sits, which assets are likely to fail next, what caused outages, where maintenance money goes, and what demand is coming. Equipment failure caused 80 of the 156 outages and 68% of customers affected, and GEN-MI-0128, the only critical asset, had 8 failures in a year with no maintenance job.
+
+To open it, load `CriticalInfraRisk.pbip` in Power BI Desktop, set the `DataFolder` parameter to your local `dashboards/powerbi/extracts` path (Transform data > Edit parameters), and refresh. Pages, KPIs and model notes are in [dashboards/powerbi/README.md](dashboards/powerbi/README.md).
+
 ## Layout
 
 ```
 critical-infrastructure-risk-intelligence/
 ├── api/                  FastAPI
-├── dashboards/powerbi/   extracts, DAX, page spec
+├── dashboards/powerbi/   Power BI project, extracts, DAX, screenshots
 ├── data/                 raw, processed, quarantine, sqlite warehouse
 ├── docs/                 architecture, flow, features, KPIs, impact, deploy
 ├── models/               joblib artifacts, registry, experiment log
