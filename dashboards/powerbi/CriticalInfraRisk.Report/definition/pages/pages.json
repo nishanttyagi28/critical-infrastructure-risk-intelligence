@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/pagesMetadata/1.0.0/schema.json",
+  "pageOrder": [
+    "p01_executive_overview",
+    "p02_asset_risk",
+    "p03_incidents_outages",
+    "p04_maintenance",
+    "p05_energy_demand_weather",
+    "p06_risk_map"
+  ],
+  "activePageName": "p01_executive_overview"
+}

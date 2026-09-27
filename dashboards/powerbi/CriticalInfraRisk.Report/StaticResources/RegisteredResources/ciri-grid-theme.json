@@ -1,0 +1,52 @@
+{
+  "name": "AetherGrid",
+  "dataColors": [
+    "#0F6CBD",
+    "#E8793A",
+    "#2BA59A",
+    "#7A4FC4",
+    "#D6A21E",
+    "#C4314B",
+    "#5B8DB8",
+    "#6E7C8C"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1B2A3A",
+  "tableAccent": "#0F6CBD",
+  "good": "#1E8E3E",
+  "neutral": "#D6A21E",
+  "bad": "#C4314B",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#1B2A3A"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#5B6B7B"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#1B2A3A"
+    }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F2F5F8"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "CriticalInfraRisk"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5cb44f81-ccdb-5d76-8411-9b6543518d24"
+  }
+}
