@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 from collections.abc import Iterator
+from pathlib import Path
 
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, make_url, text
 from sqlalchemy.engine import Engine
 
 import pandas as pd
@@ -36,11 +37,23 @@ STAR_TABLES = [
 ]
 
 
+def _ensure_sqlite_dir(url: str) -> None:
+    """Create the parent folder of a SQLite file so the first connect works."""
+    parsed = make_url(url)
+    if parsed.get_backend_name() != "sqlite":
+        return
+    database = parsed.database or ""
+    if not database or database == ":memory:" or database.startswith("file:"):
+        return
+    Path(database).expanduser().parent.mkdir(parents=True, exist_ok=True)
+
+
 class Warehouse:
     """Thin wrapper around the star schema and the model marts."""
 
     def __init__(self, url: str | None = None) -> None:
         self.url = url or database_url()
+        _ensure_sqlite_dir(self.url)
         self.engine: Engine = create_engine(self.url)
 
     def backend_name(self) -> str:
